@@ -29,8 +29,8 @@ public class ExceptionUtilsAutoConfiguration {
         }
 
         return new DingTalkRobotClientFacade(
-                keys,
-                accessToken
+                accessToken,
+                keys
         );
     }
 }
