@@ -49,13 +49,15 @@ public class SendToDingTalkExceptionHandlerTest {
     public void name() {
         ExceptionProperties.DingTalk dingTalk = new ExceptionProperties.DingTalk();
         dingTalk.getAlarm().setEnabled(true);
+        dingTalk.getAlarm().setTitle("excp-utils 单测告警");
+
         when(properties.getDingTalk()).thenReturn(dingTalk);
 
         RuntimeException e = new RuntimeException("测试");
         String extraInfo = "hello";
         handler.handle(e, extraInfo);
         assertThat(capture.toString()).contains(
-                "监控告警",
+                "excp-utils 单测告警",
                 "系统异常",
                 "错误信息：测试",
                 "堆栈信息：" + e.getClass().getName(),

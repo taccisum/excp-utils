@@ -42,8 +42,9 @@ public class SendToDingTalkExceptionHandler {
         }
 
         if (shouldSend) {
+            String title = properties.getDingTalk().getAlarm().getTitle();
             dingTalkRobotClient.sendMarkdown(
-                    "监控告警",
+                    title == null ? "监控告警" : title,
                     String.format("# 系统异常\n" +
                                     "错误信息：%s  \n" +
                                     "堆栈信息：%s  \n" +

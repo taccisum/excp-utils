@@ -40,6 +40,7 @@ public class ExceptionProperties {
              * 是否开启钉钉告警
              */
             private Boolean enabled = false;
+            private String title;
         }
     }
 }
