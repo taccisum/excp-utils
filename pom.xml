@@ -102,4 +102,17 @@
         </plugins>
     </build>
 
+    <distributionManagement>
+        <repository>
+            <id>i61-nexus</id>
+            <name>Nexus Release Repository</name>
+            <url>http://nexus.server.i61.com:8081/nexus/content/repositories/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>i61-nexus</id>
+            <name>Nexus Snapshot Repository</name>
+            <url>http://nexus.server.i61.com:8081/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
 </project>
