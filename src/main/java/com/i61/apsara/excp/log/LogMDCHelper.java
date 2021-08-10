@@ -9,7 +9,7 @@ import org.slf4j.MDC;
  * @since 2021-08-10
  */
 public abstract class LogMDCHelper {
-    public static final String TRACE_ID_KEY = "Trace-Id";
+    public static String TRACE_ID_KEY = "Trace-Id";
 
     public static void setTraceId(String traceId) {
         MDC.put(TRACE_ID_KEY, traceId);
