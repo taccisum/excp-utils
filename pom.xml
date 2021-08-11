@@ -6,7 +6,7 @@
 
     <groupId>com.i61.apsara</groupId>
     <artifactId>excp-utils</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.1</version>
 
     <name>Apsara Common Exception Utils</name>
 
