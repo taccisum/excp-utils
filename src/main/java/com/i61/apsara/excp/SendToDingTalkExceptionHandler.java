@@ -43,15 +43,19 @@ public class SendToDingTalkExceptionHandler {
 
         if (shouldSend) {
             String title = properties.getDingTalk().getAlarm().getTitle();
+            title = title == null ? "监控告警" : title;
             dingTalkRobotClient.sendMarkdown(
-                    title == null ? "监控告警" : title,
-                    String.format("# 系统异常\n" +
+                    title,
+                    String.format("# 系统异常（%s）\n" +
                                     "错误信息：%s  \n" +
                                     "堆栈信息：%s  \n" +
                                     "额外信息：%s",
+                            title,
                             e.getMessage(),
-
-                            ExceptionUtils.getStackTrace(e).substring(0, MAX_DINGTALK_CONTENT_LENGTH) + "......", extraInfo));
+                            ExceptionUtils.getStackTrace(e).substring(0, MAX_DINGTALK_CONTENT_LENGTH) + "......",
+                            extraInfo
+                    )
+            );
         }
     }
 }
