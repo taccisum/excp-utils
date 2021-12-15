@@ -5,6 +5,7 @@ import com.github.taccisum.excp.config.ExceptionProperties;
 import com.github.taccisum.excp.remote.DingTalkRobotClientFacade;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 /**
@@ -19,6 +20,8 @@ public class SendToDingTalkExceptionHandler {
     private ExceptionProperties properties;
     @Autowired
     private DingTalkRobotClientFacade dingTalkRobotClient;
+    @Value("${spring.profiles.active:default}")
+    private String env;
 
     private static final int MAX_DINGTALK_CONTENT_LENGTH = 1000;
 
@@ -47,10 +50,12 @@ public class SendToDingTalkExceptionHandler {
             dingTalkRobotClient.sendMarkdown(
                     title,
                     String.format("# 系统异常（%s）\n" +
+                                    "环境信息：%s  \n" +
                                     "错误信息：%s  \n" +
                                     "堆栈信息：%s  \n" +
                                     "额外信息：%s",
                             title,
+                            env,
                             e.getMessage(),
                             ExceptionUtils.getStackTrace(e).substring(0, MAX_DINGTALK_CONTENT_LENGTH) + "......",
                             extraInfo

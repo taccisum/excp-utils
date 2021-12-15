@@ -60,6 +60,7 @@ public class SendToDingTalkExceptionHandlerTest {
                 "excp-utils 单测告警",
                 "系统异常",
                 "错误信息：测试",
+                "环境信息：default",
                 "堆栈信息：" + e.getClass().getName(),
                 "额外信息：" + extraInfo);
         capture.reset();
