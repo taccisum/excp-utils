@@ -9,6 +9,7 @@
     <version>0.1</version>
 
     <name>Common Exception Utils</name>
+    <description>Series of utils for handle exceptions.</description>
 
     <licenses>
         <license>
