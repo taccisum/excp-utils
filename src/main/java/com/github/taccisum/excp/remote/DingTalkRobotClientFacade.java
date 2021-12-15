@@ -32,16 +32,18 @@ public class DingTalkRobotClientFacade {
     }
 
     /**
+     * <pre>
      * 通过机器人发送 markdown 消息到群
-     * <br/>
+     *
      * 示例：
-     * 执行 sendMarkdown("告警信息", "# 系统异常\n内容内容内容")<br/>
-     * 推送消息展示为：<br/>
+     * 执行 sendMarkdown("告警信息", "# 系统异常\n内容内容内容")
+     * 推送消息展示为：
      * 『 keys 』 告警信息
-     * <br/>
-     * 钉钉群展示为：<br/>
-     * <h2>系统异常</h2>
+     *
+     * 钉钉群展示为：
+     * 系统异常
      * 内容内容内容
+     * </pre>
      */
     public void sendMarkdown(String title, String markdown) {
         DingTalkClient client = new DefaultDingTalkClient(SERVER_URL);
