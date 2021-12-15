@@ -1,4 +1,4 @@
-package com.i61.apsara.excp.remote;
+package com.github.taccisum.excp.remote;
 
 import org.junit.Test;
 

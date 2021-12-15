@@ -1,1 +1,1 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.i61.apsara.excp.ExceptionUtilsAutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.github.taccisum.excp.ExceptionUtilsAutoConfiguration

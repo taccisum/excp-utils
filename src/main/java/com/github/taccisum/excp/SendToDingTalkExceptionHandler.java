@@ -1,8 +1,8 @@
-package com.i61.apsara.excp;
+package com.github.taccisum.excp;
 
 
-import com.i61.apsara.excp.config.ExceptionProperties;
-import com.i61.apsara.excp.remote.DingTalkRobotClientFacade;
+import com.github.taccisum.excp.config.ExceptionProperties;
+import com.github.taccisum.excp.remote.DingTalkRobotClientFacade;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

@@ -1,4 +1,4 @@
-package com.i61.apsara.excp.config;
+package com.github.taccisum.excp.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

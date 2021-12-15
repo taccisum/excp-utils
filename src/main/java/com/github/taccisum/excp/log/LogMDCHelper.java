@@ -1,4 +1,4 @@
-package com.i61.apsara.excp.log;
+package com.github.taccisum.excp.log;
 
 import org.slf4j.MDC;
 

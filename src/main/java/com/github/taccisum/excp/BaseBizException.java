@@ -1,4 +1,4 @@
-package com.i61.apsara.excp;
+package com.github.taccisum.excp;
 
 import lombok.Getter;
 import org.springframework.http.HttpStatus;

@@ -1,4 +1,4 @@
-package com.i61.apsara.excp.utils;
+package com.github.taccisum.excp.utils;
 
 import java.util.UUID;
 

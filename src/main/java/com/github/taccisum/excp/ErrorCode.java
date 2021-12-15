@@ -1,4 +1,4 @@
-package com.i61.apsara.excp;
+package com.github.taccisum.excp;
 
 /**
  * @author taccisum - liaojinfeng6938@dingtalk.com
