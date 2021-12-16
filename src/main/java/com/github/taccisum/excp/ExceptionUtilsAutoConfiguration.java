@@ -1,6 +1,7 @@
 package com.github.taccisum.excp;
 
 import com.github.taccisum.excp.config.ExceptionProperties;
+import com.github.taccisum.excp.log.LogMDCHelper;
 import com.github.taccisum.excp.log.traceid.TraceIdGenerator;
 import com.github.taccisum.excp.log.traceid.generator.ChainedTraceIdGenerator;
 import com.github.taccisum.excp.remote.DingTalkRobotClientFacade;
@@ -45,5 +46,6 @@ public class ExceptionUtilsAutoConfiguration implements InitializingBean {
     @Override
     public void afterPropertiesSet() throws Exception {
         IdUtils.setTraceIdGenerator(new ChainedTraceIdGenerator(traceIdGenerators));
+        LogMDCHelper.setProperties(properties);
     }
 }
