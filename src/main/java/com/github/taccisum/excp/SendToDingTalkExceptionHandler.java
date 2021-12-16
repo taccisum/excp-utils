@@ -2,11 +2,14 @@ package com.github.taccisum.excp;
 
 
 import com.github.taccisum.excp.config.ExceptionProperties;
+import com.github.taccisum.excp.log.LogMDCHelper;
 import com.github.taccisum.excp.remote.DingTalkRobotClientFacade;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+
+import java.util.Optional;
 
 /**
  * 用于将错误信息发送至钉钉群的 exception handler
@@ -53,11 +56,13 @@ public class SendToDingTalkExceptionHandler {
                                     "环境信息：%s  \n" +
                                     "错误信息：%s  \n" +
                                     "堆栈信息：%s  \n" +
+                                    "Trace ID：%s  \n" +
                                     "额外信息：%s",
                             title,
                             env,
                             e.getMessage(),
                             ExceptionUtils.getStackTrace(e).substring(0, MAX_DINGTALK_CONTENT_LENGTH) + "......",
+                            Optional.ofNullable(LogMDCHelper.getTraceId()).orElse("None"),
                             extraInfo
                     )
             );

@@ -1,7 +1,9 @@
 package com.github.taccisum.excp;
 
 import com.github.taccisum.excp.config.ExceptionProperties;
+import com.github.taccisum.excp.log.LogMDCHelper;
 import com.github.taccisum.excp.remote.DingTalkRobotClientFacade;
+import org.junit.After;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,6 +29,11 @@ public class SendToDingTalkExceptionHandlerTest {
     private SendToDingTalkExceptionHandler handler;
     @MockBean
     private ExceptionProperties properties;
+
+    @After
+    public void tearDown() throws Exception {
+        LogMDCHelper.removeTraceId();
+    }
 
     @TestConfiguration
     public static class TestConfig {
@@ -55,6 +62,8 @@ public class SendToDingTalkExceptionHandlerTest {
 
         RuntimeException e = new RuntimeException("测试");
         String extraInfo = "hello";
+        String traceId = "my_trace_id";
+        LogMDCHelper.setTraceId(traceId);
         handler.handle(e, extraInfo);
         assertThat(capture.toString()).contains(
                 "excp-utils 单测告警",
@@ -62,6 +71,7 @@ public class SendToDingTalkExceptionHandlerTest {
                 "错误信息：测试",
                 "环境信息：default",
                 "堆栈信息：" + e.getClass().getName(),
+                "Trace ID：" + traceId,
                 "额外信息：" + extraInfo);
         capture.reset();
     }
