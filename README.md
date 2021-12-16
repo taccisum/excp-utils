@@ -8,15 +8,14 @@
 
 ```yaml
 # application.yml
-apsara:
-  excp:
-    ding-talk:
-      alarm:
-        enabled: true # 不需要告警的环境可以通过此配置关闭
-        title: My Service
-      robot:
-        keys: my-service-dev  # 需要能与钉钉机器人设置的关键字匹配上
-        access-token: {your_dingtalk_robot_token}
+excp:
+  ding-talk:
+    alarm:
+      enabled: true # 不需要告警的环境可以通过此配置关闭
+      title: My Service
+    robot:
+      keys: my-service-dev  # 需要能与钉钉机器人设置的关键字匹配上
+      access-token: {your_dingtalk_robot_token}
 ```
 
 然后在相应的场景捕获并处理异常
@@ -57,12 +56,11 @@ logging:
 如果某些场景你无需 `excp-utils` 为你添加 trace id，你也可以通过配置来轻松控制
 ```yaml
 # application.yml
-apsara:
-  excp:
-    trace-id:
-      enabled:
-        servlet: false
-        rabbit: true
-        scheduled: true
+excp:
+  trace-id:
+    enabled:
+      servlet: false
+      rabbit: true
+      scheduled: true
 ```
 

@@ -5,8 +5,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 /**
- * TODO:: prefix
- *
  * @author taccisum - liaojinfeng6938@dingtalk.com
  * @since 2021-08-10
  */
@@ -14,7 +12,7 @@ import org.springframework.stereotype.Component;
 @Component
 @ConfigurationProperties(ExceptionProperties.PREFIX)
 public class ExceptionProperties {
-    public static final String PREFIX = "apsara.excp";
+    public static final String PREFIX = "excp";
 
     /**
      * 钉钉相关配置
