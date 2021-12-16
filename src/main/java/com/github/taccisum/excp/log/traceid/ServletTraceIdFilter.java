@@ -7,6 +7,7 @@ import com.github.taccisum.excp.utils.IdUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.core.Ordered;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
@@ -20,7 +21,7 @@ import java.io.IOException;
 @Component
 @ConditionalOnClass(Filter.class)
 @ConditionalOnProperty(prefix = ExceptionProperties.PREFIX + ".trace-id.enabled", name = "servlet", havingValue = "true", matchIfMissing = true)
-public class ServletTraceIdFilter implements Filter {
+public class ServletTraceIdFilter implements Filter, Ordered {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         log.info("初始化 Servlet Filter: {}", this.getClass().getName());
@@ -39,5 +40,11 @@ public class ServletTraceIdFilter implements Filter {
     @Override
     public void destroy() {
         log.info("销毁 Servlet Filter: {}", this.getClass().getName());
+    }
+
+    @Override
+    public int getOrder() {
+        // 最先执行
+        return Integer.MIN_VALUE;
     }
 }
