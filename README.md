@@ -1,6 +1,20 @@
 # Exception Utils
 
+Series of utils for handle exceptions.
+
 ## How to
+
+引入依赖即可，依赖中已包含了 Spring Boot Starter，完全开箱即用
+
+```xml
+<dependency>
+    <groupId>com.github.taccisum</groupId>
+    <artifactId>excp-utils</artifactId>
+    <version>{latest-version}</version>
+</dependency>
+```
+
+## References
 
 ### 发生异常时发送钉钉告警
 
@@ -33,8 +47,6 @@ try {
 
 建议结合框架（如 Spring MVC、Guava EventBus 等等）的全局异常处理器使用
 
-
-## References
 
 ### Trace ID
 
