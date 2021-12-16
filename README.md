@@ -50,7 +50,7 @@ LogMDCHelper.getTraceId()
 # application.yml
 logging:
   pattern:
-    console: '[%X{traceId}] {you pattern...}'  # 注意 traceId 应换成你定义的 key
+    console: '[%X{Trace-Id}] {you pattern...}'  # 注意 Trace-Id 应换成你定义的 key
 ```
 
 如果某些场景你无需 `excp-utils` 为你添加 trace id，你也可以通过配置来轻松控制
