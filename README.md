@@ -4,23 +4,31 @@
 
 ### 发生异常时发送钉钉告警
 
-```java
-@Autowired
-private SendToDingTalkExceptionHandler sendToDingTalkExceptionHandler;
-
-sendToDingTalkExceptionHandler.handle(new RuntimeException(), "custom msg");
-```
+首先要配置好钉钉机器人（通过钉钉群添加机器人获取 token）
 
 ```yaml
 apsara:
   excp:
     ding-talk:
       alarm:
-        enabled: true
+        enabled: true # 不需要告警的环境可以通过此配置关闭
         title: My Service
       robot:
-        keys: my-service-dev
+        keys: my-service-dev  # 需要能与钉钉机器人设置的关键字匹配上
         access-token: {your_dingtalk_robot_token}
+```
+
+然后在相应的场景捕获并处理异常
+
+```java
+@Autowired
+private SendToDingTalkExceptionHandler sendToDingTalkExceptionHandler;
+
+try {
+    // do something...
+} catch(Exception e) {
+    sendToDingTalkExceptionHandler.handle(e, "custom msg");
+}
 ```
 
 建议结合框架（如 Spring MVC、Guava EventBus 等等）的全局异常处理器使用
