@@ -7,6 +7,7 @@
 首先要配置好钉钉机器人（通过钉钉群添加机器人获取 token）
 
 ```yaml
+# application.yml
 apsara:
   excp:
     ding-talk:
